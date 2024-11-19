@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model meet {
+  id          Int       @id @unique(map: "sqlite_autoindex_meet_1") @default(autoincrement())
+  title       String?
+  date        String?
+  description String?
+  meeting     meeting[]
+}
+
+model meeting {
+  id      Int  @id @unique(map: "sqlite_autoindex_meeting_1") @default(autoincrement())
+  user_id Int
+  meet_id Int
+  meet    meet @relation(fields: [meet_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user    user @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([meet_id], map: "idx_meeting_meet_id")
+  @@index([user_id], map: "idx_meeting_user_id")
+}
+
+model user {
+  id       Int       @id @unique(map: "sqlite_autoindex_user_1") @default(autoincrement())
+  username String?
+  email    String?   @unique
+  password String?
+  role     String?
+  meeting  meeting[]
+}
