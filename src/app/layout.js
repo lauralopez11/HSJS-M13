@@ -1,5 +1,5 @@
-import "@/app/styles/globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "@/styles/globals.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Providers } from "./providers";
 
 export const metadata = {

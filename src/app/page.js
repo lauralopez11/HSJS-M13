@@ -3,8 +3,7 @@ import { useState, useCallback } from "react";
 import { useSession, SessionProvider, signOut } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 import { Button } from "@nextui-org/button";
-import ReactBigCalendar from "@/app/components/ReactBigCalendar";
-import MeetModal from "@/app/components/MeetModal";
+import ReactBigCalendar from "@/components/ReactBigCalendar";
 
 
 export default function Home() {
@@ -13,7 +12,7 @@ export default function Home() {
   const router = useRouter();
 
   if (status === 'unauthenticated') {
-    router.push('/login');
+    router.push('/signin');
     return (
       <>
       </>
@@ -24,15 +23,8 @@ export default function Home() {
     return (
       <SessionProvider>
         <div>
-          <Button onClick={() => signOut()}>signOut</Button>
+          <Button onClick={() => signOut()}>Sign Out</Button>
           <ReactBigCalendar />
-          {showModal && <MeetModal
-            show={showModal}
-            handleClose={handleCloseModal}
-            setCurrentMeet={setCurrentMeet}
-            saveMeet={saveMeet}
-            meet={currentMeet}
-          />}
         </div>
       </SessionProvider>
     );
