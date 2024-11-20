@@ -10,7 +10,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/react/**/*.js",
-    "./node_modules/@nextui-org/theme/dist/components/(button|input|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|input|modal|ripple|spinner).js"
   ],
   theme: {
     extend: {
