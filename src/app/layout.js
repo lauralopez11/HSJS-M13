@@ -1,6 +1,6 @@
-import "./globals.css";
+import "@/app/styles/globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SessionProvider } from "next-auth/react";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "HSJS - Meetings",
@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`antialiased`}>
-        <SessionProvider>
+        <Providers>
           {children}
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   );
