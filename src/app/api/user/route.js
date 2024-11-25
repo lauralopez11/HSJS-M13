@@ -7,7 +7,10 @@ export async function GET() {
     return NextResponse.json(users);
   } catch (error) {
     console.error('Error getting user:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -18,6 +21,9 @@ export async function POST(request) {
     return NextResponse.json(addedUser, { status: 201 });
   } catch (error) {
     console.error('Error adding user:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }

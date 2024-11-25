@@ -8,7 +8,10 @@ export async function GET(request, { params }) {
     return NextResponse.json(meetUsers);
   } catch (error) {
     console.error('Error getting meet user:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -21,6 +24,9 @@ export async function PUT(request, { params }) {
     return NextResponse.json({ message: 'Users for meet set successfully' });
   } catch (error) {
     console.error('Error setting meet user:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }

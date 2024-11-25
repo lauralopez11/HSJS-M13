@@ -10,7 +10,7 @@ export async function POST(req) {
 
   // Basic validation
   const error = {};
-  if (!username ) {
+  if (!username) {
     error.username = 'Field is required';
   }
   if (!email) {
@@ -19,11 +19,11 @@ export async function POST(req) {
   if (!password) {
     error.password = 'Field is required';
   }
-  
+
   const existingUser = await database.user.findUnique({
     where: { email },
   });
-  
+
   if (existingUser) {
     error.email = 'Email is already in use.';
   }
@@ -31,7 +31,7 @@ export async function POST(req) {
   if (Object.keys(error).length !== 0) {
     return NextResponse.json(error, { status: 400 });
   }
-  
+
   const hashedPassword = await bcrypt.hash(password, 12);
 
   try {
@@ -43,9 +43,15 @@ export async function POST(req) {
       },
     });
 
-    return NextResponse.json({ message: 'User registered successfully.' }, { status: 201 });
+    return NextResponse.json(
+      { message: 'User registered successfully.' },
+      { status: 201 }
+    );
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ message: 'An error occurred. Please try again.' }, { status: 500 });
+    return NextResponse.json(
+      { message: 'An error occurred. Please try again.' },
+      { status: 500 }
+    );
   }
 }

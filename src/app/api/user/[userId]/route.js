@@ -12,7 +12,10 @@ export async function GET(request, { params }) {
     }
   } catch (error) {
     console.error('Error getting user by ID:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -24,7 +27,10 @@ export async function PUT(request, { params }) {
     return NextResponse.json(editedUser);
   } catch (error) {
     console.error('Error updating user:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -35,6 +41,9 @@ export async function DELETE(request, { params }) {
     return NextResponse.json(deletedUser);
   } catch (error) {
     console.error('Error deleting user:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }

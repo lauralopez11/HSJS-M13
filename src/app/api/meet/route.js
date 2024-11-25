@@ -7,7 +7,10 @@ export async function GET() {
     return NextResponse.json(meets);
   } catch (error) {
     console.error('Error getting meet:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -18,6 +21,9 @@ export async function POST(request) {
     return NextResponse.json(addedMeet, { status: 201 });
   } catch (error) {
     console.error('Error adding meet:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }

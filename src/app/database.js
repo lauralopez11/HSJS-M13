@@ -4,6 +4,7 @@ const database = new PrismaClient();
 export async function getUsers() {
   return database.user.findMany();
 }
+
 export async function getUserById(userId) {
   return database.user.findUnique({ where: { id: userId } });
 }
@@ -16,19 +17,19 @@ export async function addUser(user) {
       username: user.username,
       email: user.email,
       password: user.password,
-      role: user.role
-    }
+      role: user.role,
+    },
   });
 }
 export async function removeUser(userId) {
   return database.user.delete({
-    where: { id: userId }
+    where: { id: userId },
   });
 }
 export async function updateUser(userId, updatedUser) {
   return database.user.update({
     where: { id: userId },
-    data: updatedUser
+    data: updatedUser,
   });
 }
 export async function getUserMeets(userId) {
@@ -36,10 +37,10 @@ export async function getUserMeets(userId) {
     where: {
       meeting: {
         some: {
-          user_id: userId
-        }
-      }
-    }
+          user_id: userId,
+        },
+      },
+    },
   });
 }
 export async function getMeets() {
@@ -53,19 +54,19 @@ export async function addMeet(meet) {
     data: {
       title: meet.title,
       date: meet.date,
-      description: meet.description
-    }
+      description: meet.description,
+    },
   });
 }
 export async function removeMeet(meetId) {
   return database.meet.delete({
-    where: { id: meetId }
+    where: { id: meetId },
   });
 }
 export async function updateMeet(meetId, updatedMeet) {
   return database.meet.update({
     where: { id: meetId },
-    data: updatedMeet
+    data: updatedMeet,
   });
 }
 export async function getMeetUsers(meetId) {
@@ -73,24 +74,24 @@ export async function getMeetUsers(meetId) {
     where: {
       meeting: {
         some: {
-          meet_id: meetId
-        }
-      }
-    }
+          meet_id: meetId,
+        },
+      },
+    },
   });
 }
 export async function setMeetUsers(meetId, userIds) {
   await database.$transaction(async (tx) => {
     await tx.meeting.deleteMany({
-      where: { meet_id: meetId }
+      where: { meet_id: meetId },
     });
 
     for (const userId of userIds) {
       await tx.meeting.create({
         data: {
           user_id: userId,
-          meet_id: meetId
-        }
+          meet_id: meetId,
+        },
       });
     }
   });

@@ -1,10 +1,9 @@
 'use client';
-import { useState, useCallback } from "react";
-import { useSession, SessionProvider, signOut } from "next-auth/react";
+import { useState, useCallback } from 'react';
+import { useSession, SessionProvider, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Button } from "@nextui-org/button";
-import ReactBigCalendar from "@/components/ReactBigCalendar";
-
+import { Button } from '@nextui-org/button';
+import ReactBigCalendar from '@/components/ReactBigCalendar';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -13,10 +12,7 @@ export default function Home() {
 
   if (status === 'unauthenticated') {
     router.push('/signin');
-    return (
-      <>
-      </>
-    )
+    return <></>;
   }
 
   if (status === 'authenticated') {

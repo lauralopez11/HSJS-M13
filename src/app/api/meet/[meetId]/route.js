@@ -12,7 +12,10 @@ export async function GET(request, { params }) {
     }
   } catch (error) {
     console.error('Error getting meet by ID:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -24,7 +27,10 @@ export async function PUT(request, { params }) {
     return NextResponse.json(editedMeet);
   } catch (error) {
     console.error('Error updating meet:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 
@@ -35,6 +41,9 @@ export async function DELETE(request, { params }) {
     return NextResponse.json(deletedMeet);
   } catch (error) {
     console.error('Error deleting meet:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
