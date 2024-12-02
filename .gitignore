@@ -38,7 +38,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-prisma/database/*
 
+# editors
 .vscode/*
 .idea/*
+
+# db
+*.db
+*.db-journal
