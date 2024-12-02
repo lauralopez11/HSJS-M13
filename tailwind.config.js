@@ -1,15 +1,14 @@
 import { nextui } from '@nextui-org/react';
-import tailwindcssAnimate from 'tailwindcss-animate';
 
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   content: [
+    './node_modules/mina-scheduler/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/react/**/*.js',
-    './node_modules/@nextui-org/theme/dist/components/(button|input|modal|ripple|spinner).js',
+    './node_modules/@nextui-org/theme/dist/components/(accordion|autocomplete|button|calendar|card|chip|date-input|date-picker|dropdown|input|modal|navbar|toggle|tabs|divider|ripple|spinner|listbox|popover|scroll-shadow|menu).js',
   ],
   theme: {
     extend: {
@@ -62,6 +61,6 @@ export default {
       },
     },
   },
-  darkMode: ['class', 'class'],
-  plugins: [nextui(), tailwindcssAnimate],
+  darkMode: ['class'],
+  plugins: [nextui(), 'tailwindcss-animate'],
 };
