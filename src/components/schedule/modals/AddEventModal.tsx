@@ -210,7 +210,7 @@ export default function AddEventModal({
           <SelectDate data={data} setValue={setValue} formState={formState} />
 
           <ModalFooter className='px-0'>
-            {typedData?.id && (
+            {(typedData?.id && typedData.authorId === session?.user?.id) && (
               <Button color='danger' variant='flat' onPress={handleDelete}>
                 <TrashIcon />
                 Remove Event

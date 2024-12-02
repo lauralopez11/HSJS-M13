@@ -2,15 +2,8 @@ import { auth } from '@/app/auth';
 import database from '@/app/database';
 import { NextAuthRequest } from 'next-auth/lib';
 import { NextResponse } from 'next/server';
+import { EventData } from '@/types/schedule';
 
-interface EventData {
-  id: string;
-  title: string;
-  description: string;
-  startDate: string;
-  endDate: string;
-  participants: string[];
-}
 
 // @ts-ignore
 export const GET = auth(async function (

@@ -1,9 +1,9 @@
 import { auth } from '@/app/auth';
 import database from '@/app/database';
 import { Event } from '@/types/schedule';
-import { Prisma } from '@prisma/client';
 import { NextAuthRequest } from 'next-auth/lib';
 import { NextResponse } from 'next/server';
+import { EventData } from '@/types/schedule';
 
 export const GET = auth(async function (request: NextAuthRequest) {
   if (
@@ -81,7 +81,7 @@ export const POST = auth(async function (request: NextAuthRequest) {
   }
 
   try {
-    const { title, description, startDate, endDate, participants }: Event =
+    const { title, description, startDate, endDate, participants }: EventData =
       await request.json();
 
     if (!title || !startDate || !endDate || !participants) {
@@ -100,9 +100,7 @@ export const POST = auth(async function (request: NextAuthRequest) {
         endDate: new Date(endDate),
         authorId: request.auth.user.id,
         participants: {
-          connect: participants.map((user) => ({
-            id: user.id,
-          })),
+          connect: participants.map((participantId) => ({ id: participantId })), // Adjust relation
         },
       },
     });

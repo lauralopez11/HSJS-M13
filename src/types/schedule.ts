@@ -19,6 +19,15 @@ export interface Event {
   participants: User[];
 }
 
+export interface EventData {
+  id: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  participants: string[];
+}
+
 export interface EventWithParticipantIds extends Omit<Event, 'participants'> {
   participants: string[];
 }
