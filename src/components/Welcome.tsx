@@ -1,4 +1,6 @@
-import { Button, Card, Image, Link } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Card } from '@nextui-org/card';
+import { Link } from '@nextui-org/link';
 
 export function Welcome() {
   return (

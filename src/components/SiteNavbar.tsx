@@ -1,19 +1,21 @@
 'use client';
 
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import { Avatar } from '@nextui-org/avatar';
+import { Button } from '@nextui-org/button';
 import {
-  Avatar,
-  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Link,
+} from '@nextui-org/dropdown';
+import { Link } from '@nextui-org/link';
+import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from '@nextui-org/react';
+} from '@nextui-org/navbar';
 import { Skeleton } from '@nextui-org/skeleton';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';

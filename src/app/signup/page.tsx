@@ -1,7 +1,9 @@
 'use client';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button, Input, Link } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
+import { Link } from '@nextui-org/link';
 import { EyeFilledIcon, EyeSlashFilledIcon } from '@nextui-org/shared-icons';
 import axios, { AxiosError } from 'axios';
 import { AlertCircle } from 'lucide-react';

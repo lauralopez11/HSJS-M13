@@ -3,7 +3,7 @@
 import SchedulerWrapper from '@/components/schedule/view/SchedulerViewFilteration';
 import { Welcome } from '@/components/Welcome';
 import { SchedulerProvider } from '@/providers/SchedulerProvider';
-import { Spinner } from '@nextui-org/react';
+import { Spinner } from '@nextui-org/spinner';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
