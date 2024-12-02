@@ -1,9 +1,8 @@
 import { auth } from '@/app/auth';
 import database from '@/app/database';
-import { Event } from '@/types/schedule';
+import { Event, EventData } from '@/types/schedule';
 import { NextAuthRequest } from 'next-auth/lib';
 import { NextResponse } from 'next/server';
-import { EventData } from '@/types/schedule';
 
 export const GET = auth(async function (request: NextAuthRequest) {
   if (

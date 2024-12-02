@@ -123,6 +123,9 @@ export default function EventStyled({
                           name={participant.name as string}
                           src={participant.image ?? undefined}
                           size='sm'
+                          classNames={{
+                            img: 'opacity-100',
+                          }}
                         />
                       </Tooltip>
                     ))}

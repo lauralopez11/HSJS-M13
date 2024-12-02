@@ -1,9 +1,8 @@
 import { auth } from '@/app/auth';
 import database from '@/app/database';
+import { EventData } from '@/types/schedule';
 import { NextAuthRequest } from 'next-auth/lib';
 import { NextResponse } from 'next/server';
-import { EventData } from '@/types/schedule';
-
 
 // @ts-ignore
 export const GET = auth(async function (

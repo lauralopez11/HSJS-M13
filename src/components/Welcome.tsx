@@ -3,14 +3,6 @@ import { Button, Card, Image, Link } from '@nextui-org/react';
 export function Welcome() {
   return (
     <div className='flex h-screen flex-col items-center justify-center p-4'>
-      <Image
-        src='/logo.png'
-        alt='App Logo'
-        width={128}
-        height={128}
-        className='mb-6'
-      />
-
       <Card className='w-full max-w-md p-6 shadow-lg'>
         <h1 className='mb-9 text-center text-4xl font-bold'>
           Welcome to EduBook
